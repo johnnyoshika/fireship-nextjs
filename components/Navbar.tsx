@@ -1,9 +1,18 @@
 import Link from 'next/link';
 import { useContext } from 'react';
 import { UserContext } from '@lib/context';
+import { useRouter } from 'next/router';
+import { auth } from '@lib/firebase';
 
 const Navbar = () => {
   const { user, username } = useContext(UserContext);
+
+  const router = useRouter();
+
+  const signOut = () => {
+    auth.signOut();
+    router.reload();
+  };
 
   return (
     <nav className="navbar">
@@ -17,7 +26,7 @@ const Navbar = () => {
         {username && (
           <>
             <li className="push-left">
-              <button onClick={() => {}}>Sign Out</button>
+              <button onClick={signOut}>Sign Out</button>
             </li>
             <li>
               <Link href="/admin">
