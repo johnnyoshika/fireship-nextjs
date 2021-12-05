@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+import ImageUploader from '@components/ImageUploader';
 
 const PostManager = () => {
   const [preview, setPreview] = useState(false);
@@ -96,6 +97,7 @@ const PostForm = ({
       )}
 
       <div className={preview ? styles.hidden : styles.controls}>
+        <ImageUploader />
         <textarea
           name="content"
           ref={register({
