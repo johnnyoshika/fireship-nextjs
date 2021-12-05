@@ -13,17 +13,17 @@ export const getServerSideProps: GetServerSideProps = async ({
   let user = null;
   let posts = null;
 
-  if (userDoc) {
-    user = userDoc.data();
-    posts = (
-      await userDoc.ref
-        .collection('posts')
-        .where('published', '==', true)
-        .orderBy('createdAt', 'desc')
-        .limit(5)
-        .get()
-    ).docs.map(postToJSON);
-  }
+  if (!userDoc) return { notFound: true };
+
+  user = userDoc.data();
+  posts = (
+    await userDoc.ref
+      .collection('posts')
+      .where('published', '==', true)
+      .orderBy('createdAt', 'desc')
+      .limit(5)
+      .get()
+  ).docs.map(postToJSON);
 
   // Returned props must be serializable to JSON (i.e. Firestore timestamp must be converted)
   return {
