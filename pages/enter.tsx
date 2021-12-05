@@ -6,8 +6,8 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { UserContext } from '../lib/context';
-import { auth, googleAuthProvider, firestore } from '../lib/firebase';
+import { UserContext } from '@lib/context';
+import { auth, googleAuthProvider, firestore } from '@lib/firebase';
 import { debounce } from 'lodash';
 
 function SignInButton() {

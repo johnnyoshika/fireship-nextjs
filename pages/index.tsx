@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { useState } from 'react';
-import PostFeed from '../components/PostFeed';
-import { firestore, fromMillis, postToJSON } from '../lib/firebase';
+import PostFeed from '@components/PostFeed';
+import { firestore, fromMillis, postToJSON } from '@lib/firebase';
 
 // SSR, then client side rendering for additional data
 
