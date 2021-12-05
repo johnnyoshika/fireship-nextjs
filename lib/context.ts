@@ -1,9 +1,6 @@
+import type firebase from 'firebase/app';
 import { createContext } from 'react';
 export const UserContext = createContext<{
-  user: {
-    uid: string;
-    photoURL: string;
-    displayName: string;
-  } | null;
-  username: string | null;
+  user: firebase.User | null | undefined;
+  username: string | null | undefined;
 }>({ user: null, username: null });
