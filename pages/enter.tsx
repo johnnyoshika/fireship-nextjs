@@ -36,7 +36,7 @@ function UsernameForm() {
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { user, username } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const onSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
