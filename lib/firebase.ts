@@ -19,8 +19,13 @@ if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const googleAuthProvider =
   new firebase.auth.GoogleAuthProvider();
-export const firestore = firebase.firestore();
 export const storage = firebase.storage();
+
+export const firestore = firebase.firestore();
+export const serverTimestamp =
+  firebase.firestore.FieldValue.serverTimestamp;
+export const fromMillis = firebase.firestore.Timestamp.fromMillis;
+export const increment = firebase.firestore.FieldValue.increment;
 
 /**`
  * Gets a users/{uid} document with username
