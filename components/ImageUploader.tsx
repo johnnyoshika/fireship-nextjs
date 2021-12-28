@@ -28,6 +28,7 @@ const ImageUploader = () => {
 
       // task.then is not a native promise, so we can't use async/await
       task.then(d =>
+        // getDownloadURL() is only available after file has finished uploading
         ref.getDownloadURL().then(url => {
           setDownloadURL(url);
           setUploading(false);
